@@ -71,10 +71,14 @@ function sendMoves(board, websocket) {
     });
 }
 
+
 function getWebSocketServer() {
     if (window.location.host === "PaytonAnderson.github.io") {
         return "wss://elegant-nicolina-payton-personal-1943c6ad.koyeb.app/";
-    } else if (window.location.host === "localhost:8000") {
+    } else if (
+        window.location.host === "localhost:8000" ||
+        window.location.host === "127.0.0.1:3000"
+    ) {
         return "ws://localhost:8001/";
     } else {
         throw new Error(`Unsupported host: ${window.location.host}`);

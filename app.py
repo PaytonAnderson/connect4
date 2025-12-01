@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
 import asyncio
-import json
-import secrets
 import http
+import json
 import os
+import secrets
 import signal
 
 from websockets.asyncio.server import broadcast, serve
@@ -182,6 +182,7 @@ async def handler(websocket):
     else:
         # First player starts a new game.
         await start(websocket)
+
 
 def health_check(connection, request):
     if request.path == "/healthz":
