@@ -73,7 +73,7 @@ function sendMoves(board, websocket) {
 
 
 function getWebSocketServer() {
-    if (window.location.host === "paytonanderson.github.io" && path.startsWith("/connect4")) {
+    if (window.location.host === "paytonanderson.github.io" && window.location.pathname.startsWith("/connect4")) {
         return "wss://elegant-nicolina-payton-personal-1943c6ad.koyeb.app/";
     } else if (
         window.location.host === "localhost:8000" ||
@@ -82,6 +82,7 @@ function getWebSocketServer() {
         return "ws://localhost:8001/";
     } else {
         throw new Error(`Unsupported host: ${window.location.host}`);
+        console.log(window.location.host)
     }
 }
 
